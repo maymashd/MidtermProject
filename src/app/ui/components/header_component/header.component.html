@@ -1,0 +1,17 @@
+<mat-toolbar color="primary" class="navbar">
+    <span>Midterm Project</span>
+    <div class="buttons">
+       <span class="post-btn" routerLink="/posts"
+       routerLinkActive="active"
+       #postsActive="routerLinkActive"
+       >Posts</span>
+
+       <span class="album-btn" 
+       routerLink="/albums"
+       routerLinkActive="active"
+       #albumsActive="routerLinkActive">Albums</span> 
+       <span *ngIf="logged" class="logout-btn" (click)="logout()">Logout</span> 
+
+    </div>
+
+  </mat-toolbar>

@@ -1,0 +1,34 @@
+<div class="wrapper">
+    <form [formGroup]="firstForm" (ngSubmit)="registrate()" *ngIf="registrationNeeded" class="first-form">
+        <div class="first-form_first">
+            <mat-form-field *ngFor="let e of registrationElements; let i = index" appearance="fill" class="first-form-field">
+                <mat-label>{{registrationElementsCopy[i]}}</mat-label>
+                <input 
+                matInput 
+                [type]="registrationElementsCopy[i]==='password'? 'password': 'text'" 
+                 
+                [formControl]="fName(registrationElementsCopy[i])" 
+                required
+                >
+            </mat-form-field>
+        </div>
+        <div class="first-form_second">
+            <button mat-raised-button color="primary" (click)="sendData()" class="send-btn" [disabled]="firstForm.invalid">registrate</button>
+             </div>
+        <button (click)="back()" class="button login-btn" >LOGIN</button>
+    </form>
+    <form [formGroup]="secondForm" (ngSubmit)="login(this.secondForm.value)" class="second-form" *ngIf="!registrationNeeded">
+        <mat-form-field *ngFor="let e of loginElements; let i = index" appearance="fill" class="second-form-field">
+            <mat-label>{{loginElementsCopy[i]}}</mat-label>
+            <input 
+            matInput 
+            [type]="registrationElementsCopy[i]==='password'? 'password': 'text'" 
+            
+            [formControl]="sName(loginElementsCopy[i])"
+            >
+            <mat-error *ngIf="e.invalid">{{getErrorMessage(e)}}</mat-error>
+        </mat-form-field>
+        <button type="submit" class="button login-btn" [disabled]="secondForm.invalid">LOGIN</button>
+        <button (click)="registrateBtnClicked()" class="button registrate-btn">REGISTRATE</button>
+    </form>
+</div>

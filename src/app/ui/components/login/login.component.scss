@@ -1,0 +1,76 @@
+.wrapper {
+    margin-top: 100px;
+    width: 100%;
+}
+.first-form {
+    display:flex; 
+    flex-direction: column; 
+    width: 50%;
+    margin-left: 25%;
+    box-shadow: 0 0 5px black;
+    background-color: rgba(82, 235, 102, 0.082);
+    padding: 1% 1%;
+    border-radius: 5px;
+}
+.first-form_first {
+    display: flex;
+    flex-wrap: wrap;
+}
+.first-form-field {
+    width: 22%;
+    height: 50px;
+    margin-left: 2%;
+}
+.first-form_second {
+    display: flex;
+    width: 100%;
+}
+.send-btn {
+    margin-left: auto;
+    width: 20%;
+}
+.second-form {
+    padding-top: 1%;
+    width: 40%;
+    margin-left: 30%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 5px black;
+    border-radius: 5px;
+    min-height: 300px;
+    background-color: rgba(82, 235, 102, 0.082);
+
+}
+.second-form-field {
+    width: 70%;
+    margin-left: 15%;
+}
+.button {
+    background-color: #3f51b5;
+    width: 20%;
+    border: none;
+    color: white;
+    height: 40px;
+    border-radius: 4px;
+    margin-left: 40%;
+    box-shadow: 0 0 3px black;
+    cursor: pointer;
+}
+.margin-width {
+    width: 20%;
+    margin-left: 40%;
+    text-align: center;
+
+}
+.login-btn {
+    margin-bottom: 2%;
+    background-color: #fac104;
+}
+.back-btn {
+    width: 8%;
+    cursor: pointer;
+}
+.registrate-btn {
+    background-color: #fac104;
+    color: white;
+}
