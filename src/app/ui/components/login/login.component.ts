@@ -146,6 +146,7 @@ export class LoginComponent implements OnInit{
             localStorage.setItem('token', data.access_token);
             localStorage.setItem('username', this.secondForm.value.username);
             localStorage.setItem('password', this.secondForm.value.password);
+            localStorage.setItem('id',data.userId);
             console.log('token', data.access_token);
             this.router.navigate(['posts']);
           },

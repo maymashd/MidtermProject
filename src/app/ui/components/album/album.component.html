@@ -3,10 +3,10 @@
         {{getUser(a)}}
         <div class="user">
             <div class="user-photo">
-                <img src="assets/images/human-icon.png">
+                <img src="assets/images/user-icon.jpg">
             </div>
         </div>
-        <p class="album-title"><span class="user-name">{{this.foundUser.name}}</span>'s Album: {{a.title}}</p>
+        <p class="album-title">Albums of <span class="user-name">{{this.foundUser.name}}</span> : {{a.title}}</p>
 
         <!-- <h1 class="album-title">{{a.title}}</h1> -->
         <app-photo-list [album]="a" class="photo-list"></app-photo-list>

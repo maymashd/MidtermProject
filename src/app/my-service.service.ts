@@ -1,3 +1,4 @@
+  
 import { Injectable } from "@angular/core"
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { IUser, IPost, IPhoto, IAlbum, IComment } from './data';
@@ -89,6 +90,14 @@ export class MyService {
             `http://localhost:3000/albums/${id}/photos`,{params}
         );
     }
+
+    subscribeForAlbumsOfThisUser(id: number) {
+        return this.http.get<IAlbum[]>(
+            `http://localhost:3000/users/${id}/albums`
+        );
+    }
+
+
     subscribeForPhotos() {
         return this.http.get<IPhoto[]>(
             'http://localhost:3000/photos/'

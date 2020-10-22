@@ -34,7 +34,6 @@ export class AlbumComponent implements OnInit {
   getUsers() {
     this.service
       .subscribeForUsers()
-      // .pipe(map((todos) => todos.filter((todo) => !todo.completed)))
       .subscribe((users) => {
         this.users = users;
       });

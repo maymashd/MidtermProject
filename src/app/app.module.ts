@@ -12,7 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { CustomMaterialModule } from './custom-material.module';
 import { UiModule } from './ui/ui.module';
-import { HeaderComponent } from './ui/components/header/header.component';
+import { HeaderComponent } from './ui/components/header_component/header.component';
 
 
 @NgModule({

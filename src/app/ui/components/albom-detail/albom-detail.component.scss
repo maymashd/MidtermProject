@@ -1,0 +1,26 @@
+.example-container {
+    width: 100%;
+    min-height: 83%;
+    
+  }
+
+  .example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-second-image {
+    background-size: cover;
+  }
+  
+  .photo-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  .photo {
+    max-width: 400px;
+    margin-bottom: 10px;
+  }
+  .photo img {
+    margin-top: 5px;
+  }

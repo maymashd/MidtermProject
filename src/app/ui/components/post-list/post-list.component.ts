@@ -23,6 +23,8 @@ export class PostListComponent implements OnInit {
     this.password = localStorage.getItem('password');
     // this.getUsersForPosts();
   }
+  createClicked=false;
+  searchClicked=false;
   username = '';
   password = '';
   newPostTitle = '';
@@ -45,6 +47,7 @@ export class PostListComponent implements OnInit {
         this.users = users;
       });
   }
+  
 
   getPosts() {
     this.service.subscribeForPosts().subscribe((posts) => {
@@ -69,21 +72,14 @@ export class PostListComponent implements OnInit {
   showCommentsOfThisPost(index: number, postId: number) {
     this.commentName = '';
     this.commentBody = '';
-    console.log('filtering', postId)
-    console.log('comments', this.comments);
+    // console.log('filtering', postId)
+    // console.log('comments', this.comments);
     this.commentsOfOnePost = [];
     this.commentsOfOnePost = this.comments.filter((c) => c.postId === postId);
     console.log(this.commentsOfOnePost);
     this.showComment[index] = !this.showComment[index];
   }
-  createAnArray() {
-    this.showComment = [];
-    const size = this.posts.length;
-    let i = 0;
-    while(i < size) {
-      this.showComment.push(false);
-    }
-  }
+  
   
   getUsersForPosts() {
     if(this.posts) {
@@ -105,9 +101,16 @@ export class PostListComponent implements OnInit {
     }
   }
   createPost() {
-    const foundUser = this.users.find(u => u.username === this.username && u.password === this.password)
+    if (this.newPostTitle!='' && this.newPostBody!=''){
+      
+    
+    let userId=localStorage.getItem('id');
+    console.log('id: ',userId);
+    const foundUser = this.users.find(u =>  u.id.toString() ===userId );
     let newPost: IPost;
+
     if(foundUser) {
+      console.log('user',);
       this.service.createPost(foundUser.id, this.newPostTitle, this.newPostBody).subscribe((data) => 
           {
             console.log('post created', data);
@@ -116,6 +119,7 @@ export class PostListComponent implements OnInit {
           error => console.log(error)
       );
     }
+  }
   }
   createComment(postId: number, index: number) {
     const foundUser = this.users.find(u => u.username === this.username && u.password === this.password)
@@ -127,6 +131,27 @@ export class PostListComponent implements OnInit {
       },
         error => console.log(error)
       );
+    }
+  }
+  searchClick(){
+    if (this.searchClicked==true)
+    this.searchClicked=false;
+    else
+    this.searchClicked=true;
+  }
+
+  createClick(){
+    if (this.createClicked==true)
+    this.createClicked=false;
+    else
+    this.createClicked=true;
+  }
+  createAnArray() {
+    this.showComment = [];
+    const size = this.posts.length;
+    let i = 0;
+    while(i < size) {
+      this.showComment.push(false);
     }
   }
 
